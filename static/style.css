@@ -89,28 +89,36 @@ body {
   background-color: #444;
 }
 
+/* Leaderboard */
+
 .leaderboard-container {
   background-color: #2d2d2d;
   border: 1px solid #444;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   overflow: hidden;
+
+  width: 80%;
+  min-width: 600px;
 }
 
 table {
   border-collapse: collapse;
-  padding: 20px;
+  width: 100%;
+}
+
+table tr th, table tr td {
+  padding: 12px;
 }
 
 .table-header {
   font-size: 22px;
-  padding: 5px;
   font-weight: bold;
+  text-align: left;
 }
 
 .table-content {
   font-size: 18px;
-  padding: 5px;
 }
 
 table tr:nth-child(odd) {
