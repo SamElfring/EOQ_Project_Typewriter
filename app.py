@@ -18,6 +18,10 @@ db.init_app(app)
 def hello_world():
     return "<p>Hello, World!</p>"
 
+# Create tables and models
+with app.app_context():
+    db.create_all()
+
 # Start app
 if __name__ == "__main__":
     app.run()
