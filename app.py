@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template
 from uuid import uuid4
 from models import db, Sentences
 import postgresqlite
@@ -26,7 +26,7 @@ def populate_db():
 
 @app.route("/")
 def hello_world():
-    return "<p>Hello, World!</p>"
+    return render_template("index.html")
 
 @app.route("/new-sentence")
 def get_new_sentence():
