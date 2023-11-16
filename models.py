@@ -10,5 +10,5 @@ class Leaderboard(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(20))
     words_entered = db.Column(db.Integer)
-    word_per_minute = db.Column(db.Integer)
+    words_per_minute = db.Column(db.Integer)
     time = db.Column(db.DateTime)

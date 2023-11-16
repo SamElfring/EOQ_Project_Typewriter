@@ -1,6 +1,6 @@
 from flask import Flask, render_template
 from uuid import uuid4
-from models import db, Sentences
+from models import db, Sentences, Leaderboard
 import postgresqlite
 import random
 
@@ -43,6 +43,12 @@ def get_new_sentence():
     return {
         "sentence": sentence.sentence
     }
+
+
+@app.route("/leaderboard")
+def get_leaderboard():
+    leaderboard = Leaderboard.query.all()
+    return render_template("leaderboard.html", leaderboard=leaderboard)
 
 # Create tables and models
 with app.app_context():
