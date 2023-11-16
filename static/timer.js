@@ -12,12 +12,26 @@ window.onload = () => {
                 timerEl.innerText = time.toFixed(2);
 
                 if (time <= 0) {
-                    taEl.disabled = true
-                    timerEl.innerText = "0.00";
-                    alert("Time is up!");
-                    clearInterval(interval);
+                    stopTimer();
                 }
             }, 10);
         }
     });
+}
+
+function stopTimer() {
+    clearInterval(interval);
+    taEl.disabled = true
+    timerEl.innerText = "0.00";
+
+    accuracy = document.getElementsByClassName("accuracy-value")[0].innerHTML;
+    wpm = document.getElementsByClassName("wpm-value")[0].innerHTML;
+    
+    document.getElementById("accuracy-popup").innerHTML = accuracy;
+    document.getElementById("wpm-popup").innerHTML = wpm;
+    document.getElementById("accuracy-input").value = accuracy;
+    document.getElementById("wpm-input").value = wpm;
+
+    const leaderboardPopup = document.getElementsByClassName("leaderboard-popup-container")[0];
+    leaderboardPopup.style.display = "flex";
 }

@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, redirect
 from uuid import uuid4
 from models import db, Sentences, Leaderboard
 import postgresqlite
@@ -36,7 +36,7 @@ def get_new_sentence():
     Returns:
         JSON: JSON object that contains the sentence as a string.
     """
-    random_sentence = Sentences.get_random() # type: ignore
+    random_sentence: Sentences = Sentences.get_random() # type: ignore
 
     return {
         "sentence": random_sentence.sentence
@@ -46,6 +46,20 @@ def get_new_sentence():
 def get_leaderboard():
     leaderboard = Leaderboard.get_leaderboard()
     return render_template("leaderboard.html", leaderboard=leaderboard)
+
+@app.route("/leaderboard", methods=["POST"])
+def add_to_leaderboard():
+    wpm = request.form.get("wpm")
+    # accuracy = request.form.get("accuracy")
+    name = request.form.get("name")
+
+    if not name:
+        return redirect('/')
+
+    db.session.add(Leaderboard(username=name, words_entered=0, words_per_minute=wpm)) # type: ignore
+    db.session.commit()
+
+    return redirect("/leaderboard")
 
 # Create tables and models
 with app.app_context():

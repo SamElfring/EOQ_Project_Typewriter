@@ -5,15 +5,35 @@
         <h1>Typing Test</h1>
 
         <div class="sentence-container">
-          <p class="sentence-to-type">{{ start_sentence.sentence }}</p>
+            <p class="sentence-to-type">{{ start_sentence.sentence }}</p>
         </div>
         <form id="typing-form">
-          <div class="timer">Timer: <span id="timer-span">60.00</span></div>
-          <textarea class="typing-area" placeholder="Start typing here..."></textarea>
-          <div class="accuracy">Accuracy: <span class="accuracy-value">0</span>%</div>
-          <div class="wpm">WPM: <span class="wpm-value">0</span></div>
+            <div class="timer">Timer: <span id="timer-span">60.00</span></div>
+            <textarea class="typing-area" placeholder="Start typing here..."></textarea>
+            <div class="accuracy">Accuracy: <span class="accuracy-value">0</span>%</div>
+            <div class="wpm">WPM: <span class="wpm-value">0</span></div>
         </form>
     </div>
+
+    <div class="leaderboard-popup-container">
+        <div class="leaderboard-popup">
+            <h2>Time's up!</h2>
+
+            <p>Your accuracy: <b><span id="accuracy-popup"></span>%</b></p>
+            <p>Words per minute: <b><span id="wpm-popup"></span></b></p>
+
+            <form action="/leaderboard" method="POST">
+                <input type="hidden" name="accuracy" id="accuracy-input">
+                <input type="hidden" name="wpm" id="wpm-input">
+
+                <label for="name">What is your name:</label><br>
+                <input type="text" name="name"><br>
+
+                <button type="submit">Save!</button>
+            </form>
+        </div>
+    </div>
+
     <script src="{{ url_for('static', filename='calculate.js') }}"></script>
     <script src="{{ url_for('static', filename='evaluate.js') }}"></script>
     <script src="{{ url_for('static', filename='typewriter.js') }}"></script>

@@ -17,7 +17,6 @@ class Leaderboard(db.Model):
     username = db.Column(db.String(20))
     words_entered = db.Column(db.Integer)
     words_per_minute = db.Column(db.Integer)
-    time = db.Column(db.DateTime)
 
     @classmethod
     def get_leaderboard(cls):
