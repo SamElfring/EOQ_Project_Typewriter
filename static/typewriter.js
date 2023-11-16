@@ -16,11 +16,12 @@ ta.addEventListener("input", function (e) {
         calculateWord()
         evaluateInput(e.target.value)
     }
-    else if (e.target.value.length == evaluateAnswerLength()-2) {
+    else if (e.target.value.length == evaluateAnswerLength()-1) {
+        evaluateInput(e.target.value)
+        calculateWord()
         input_len = 0
         last_val = ""
         e.target.value = ""
-        calculateWord()
         evaluateClear()
         showNewSentence()
     }

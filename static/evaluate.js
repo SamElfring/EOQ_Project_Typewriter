@@ -1,7 +1,6 @@
 const offset_multiplier = 27
 
 var answerObj = document.getElementsByClassName('sentence-to-type')[0]
-
 var offset = 0
 var errors = []
 
@@ -10,6 +9,8 @@ function evaluateAnswerLength() {
 }
 
 function evaluateInput(input) {
+    answers = document.getElementsByClassName('sentence-to-type')
+    answerObj = answers[answers.length-1]
     i = input.length-1
 
     correct = (input[i] == answerObj.textContent[i])
