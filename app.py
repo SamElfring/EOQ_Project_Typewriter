@@ -14,16 +14,14 @@ app.config["SQLALCHEMY_DATABASE_URI"] = postgresqlite.get_uri()
 
 db.init_app(app)
 
-
-def fill_database():
-    with open('sentences.txt') as sentences:
-        for line in sentences:
-            new_line = Sentences(sentence = line)
-            db.session.add(new_line)
-            db.commit()
-
-fill_database()
-
+@app.before_request
+def populate_db():
+    if Sentences.query.first() == None:
+        with open('sentences.txt') as sentences:
+            for line in sentences:
+                new_line = Sentences(sentence = line)
+                db.session.add(new_line)
+                db.session.commit()
 
 @app.route("/")
 def hello_world():
