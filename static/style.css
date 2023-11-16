@@ -24,6 +24,19 @@ body {
     font-size: 24px;
     margin-bottom: 10px;
   }
+
+  .sentence-to-type {
+    margin: 20px 0;
+    padding: 10px;
+    font-size: 18px;
+    text-align: left;
+    border: 1px solid #666;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
   
   .typing-area {
     width: 95%;
