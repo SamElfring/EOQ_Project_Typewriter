@@ -22,6 +22,7 @@ ta.addEventListener("input", function (e) {
         e.target.value = ""
         calculateWord()
         evaluateClear()
+        showNewSentence()
     }
     else {
         input_len = e.target.value.length
@@ -29,3 +30,15 @@ ta.addEventListener("input", function (e) {
         evaluateInput(e.target.value)
     }
 })
+
+async function showNewSentence() {
+    const response = await fetch("/new-sentence");
+    const sentenceJson = await response.json();
+    
+    const new_sentence = document.createElement("p");
+    new_sentence.innerText = sentenceJson.sentence;
+    new_sentence.classList.add("sentence-to-type");
+    
+    const sentenceContainer = document.getElementsByClassName("sentence-container")[0];
+    sentenceContainer.appendChild(new_sentence);
+}

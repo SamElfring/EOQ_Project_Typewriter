@@ -3,7 +3,10 @@
 {% block body %}
     <div class="typing-container">
         <h1>Typing Test</h1>
-        <p class="sentence-to-type">{{ start_sentence.sentence }}</p>
+
+        <div class="sentence-container">
+          <p class="sentence-to-type">{{ start_sentence.sentence }}</p>
+        </div>
         <form id="typing-form">
           <div class="timer">Timer: <span id="timer-span">60.00</span></div>
           <textarea class="typing-area" placeholder="Start typing here..."></textarea>
