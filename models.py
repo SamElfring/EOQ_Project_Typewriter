@@ -7,7 +7,7 @@ class Sentences():
     id = db.Column(db.Integer, primary_key=True)
     sentence =(db.Column(db.String(100)))
 
-class Statistics():
+class Leaderboard():
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(20))
     words_entered = db.Column(db.Integer)
