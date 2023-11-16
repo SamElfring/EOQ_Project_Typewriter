@@ -20,7 +20,8 @@ def populate_db():
     if Sentences.query.first() is None:
         with open('sentences.txt') as sentences:
             for line in sentences:
-                new_line = Sentences(sentence=line) # type: ignore
+                formatted_line = line.split('\n')[0]
+                new_line = Sentences(sentence=formatted_line) # type: ignore
                 db.session.add(new_line)
                 db.session.commit()
 
