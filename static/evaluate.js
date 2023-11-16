@@ -1,10 +1,15 @@
 const offset_multiplier = 27
+
+var answerObj = document.getElementsByClassName('sentence-to-type')[0]
+
 var offset = 0
 var errors = []
 
+function evaluateAnswerLength() {
+    return answerObj.textContent.length
+}
+
 function evaluateInput(input) {
-    answerObj = document.getElementsByClassName('sentence-to-type')[0]
-    
     i = input.length-1
 
     correct = (input[i] == answerObj.textContent[i])
@@ -13,7 +18,7 @@ function evaluateInput(input) {
     i += offset
     initial_content = answerObj.innerHTML
     new_content = `${initial_content.slice(0,i)}<span class='${result}'>${initial_content[i]}</span>${initial_content.slice(i+1)}`
-    answerObj.setHTML(new_content)
+    answerObj.innerHTML = new_content
     offset += offset_multiplier
 
     calculateAccuracy(correct)

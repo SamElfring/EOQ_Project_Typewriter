@@ -7,7 +7,7 @@ ta.addEventListener("input", function (e) {
     if (e.target.value.length < input_len) {
         e.target.value = last_val
     }
-    else if (e.target.value.length > 1 && e.target.value.endsWith("  ")) {
+    else if (e.target.value.endsWith("  ") || e.target.value.endsWith("\n")) {
         e.target.value = last_val
     }
     else if (e.target.value.endsWith(" ")) {
@@ -16,7 +16,7 @@ ta.addEventListener("input", function (e) {
         calculateWord()
         evaluateInput(e.target.value)
     }
-    else if (e.target.value.endsWith(".")) {
+    else if (e.target.value.length == evaluateAnswerLength()-2) {
         input_len = 0
         last_val = ""
         e.target.value = ""
