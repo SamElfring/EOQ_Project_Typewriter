@@ -21,4 +21,4 @@ class Leaderboard(db.Model):
 
     @classmethod
     def get_leaderboard(cls):
-        return cls.query.order_by(desc(cls.words_per_minute)).all()
+        return cls.query.order_by(desc(cls.words_per_minute)).limit(10).all()
