@@ -1,20 +1,22 @@
 {% extends "layout.html" %}
 
 {% block body %}
-    <table>
-        <tr>
-            <th>Rank</th>
-            <th>Username</th>
-            <th>WPM</th>
-            <th>Points</th>
-        </tr>
-        {% for user in leaderboard %}
+    <div class="leaderboard-container">
+        <table>
             <tr>
-                <td>{{loop.index}}</td>
-                <td>{{user.username}}</td>
-                <td>{{user.words_per_minute}}</td>
-                <td>{{user.words_entered}}</td>
+                <th class="table-header">Rank</th>
+                <th class="table-header">Username</th>
+                <th class="table-header">WPS</th>
+                <th class="table-header">Points</th>
             </tr>
-        {% endfor %}
-    </table>
+            {% for user in leaderboard %}
+                <tr>
+                    <td class="table-content">{{loop.index}}</td>
+                    <td class="table-content">{{user.username}}</td>
+                    <td class="table-content">{{user.words_per_minute}}</td>
+                    <td class="table-content">{{user.words_entered}}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
 {% endblock body %}
