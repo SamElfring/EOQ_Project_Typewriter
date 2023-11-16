@@ -7,6 +7,7 @@ app = Flask(__name__)
 
 # Flask config
 app.config["SECRET_KEY"] = uuid4().hex
+app.config["TEMPLATES_AUTO_RELOAD"] = True
 
 # Database configuration
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
