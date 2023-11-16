@@ -1,5 +1,18 @@
 {% extends "layout.html" %}
 
 {% block body %}
-    {{leaderboard[0].words_per_minute}}
+    <table>
+        <tr>
+            <th>username</th>
+            <th>wps</th>
+            <th>words_entered</th>
+        </tr>
+        {% for user in leaderboard %}
+            <tr>
+                <th>{{user.username}}</th>
+                <th>{{user.words_per_minute}}</th>
+                <th>{{user.words_entered}}</th>
+            </tr>
+        {% endfor %}
+    </table>
 {% endblock body %}
