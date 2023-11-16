@@ -41,10 +41,9 @@ def get_new_sentence():
         "sentence": random_sentence.sentence
     }
 
-
 @app.route("/leaderboard")
 def get_leaderboard():
-    leaderboard = Leaderboard.query.all()
+    leaderboard = Leaderboard.get_leaderboard()
     return render_template("leaderboard.html", leaderboard=leaderboard)
 
 # Create tables and models

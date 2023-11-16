@@ -1,5 +1,6 @@
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.sql.expression import func
+from sqlalchemy import desc
 
 db = SQLAlchemy()
 
@@ -17,3 +18,7 @@ class Leaderboard(db.Model):
     words_entered = db.Column(db.Integer)
     words_per_minute = db.Column(db.Integer)
     time = db.Column(db.DateTime)
+
+    @classmethod
+    def get_leaderboard(cls):
+        return cls.query.order_by(desc(cls.words_per_minute)).all()
