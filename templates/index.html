@@ -5,12 +5,13 @@
         <h1>Typing Test</h1>
         <p class="sentence-to-type">{{ start_sentence.sentence }}</p>
         <form id="typing-form">
-          <div class="timer">Timer: 0:00</div>
+          <div class="timer">Timer: <span id="timer-span">60.00</span></div>
           <textarea class="typing-area" placeholder="Start typing here..."></textarea>
           <div class="accuracy">Accuracy: <span class="accuracy-value">0</span>%</div>
           <div class="wpm">WPM: <span class="accuracy-value">0</span></div>
         </form>
     </div>
-    <script src="/static/evaluate.js"></script>
-    <script src="/static/typewriter.js"></script>
+    <script src="{{ url_for('static', filename='evaluate.js') }}"></script>
+    <script src="{{ url_for('static', filename='typewriter.js') }}"></script>
+    <script src="{{ url_for('static', filename='timer.js') }}"></script>
 {% endblock %}
