@@ -25,7 +25,7 @@ def populate_db():
                 db.session.commit()
 
 @app.route("/")
-def hello_world():
+def index():
     return render_template("index.html")
 
 @app.route("/new-sentence")
