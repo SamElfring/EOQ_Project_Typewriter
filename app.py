@@ -35,13 +35,10 @@ def get_new_sentence():
     Returns:
         JSON: JSON object that contains the sentence as a string.
     """
-    amount_of_sentences = Sentences.query.count()
-    sentence_id = random.randint(1, amount_of_sentences)
-
-    sentence: Sentences = Sentences.query.filter_by(id=sentence_id).first_or_404()
+    random_sentence = Sentences.get_random() # type: ignore
 
     return {
-        "sentence": sentence.sentence
+        "sentence": random_sentence.sentence
     }
 
 
