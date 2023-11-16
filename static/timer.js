@@ -12,6 +12,7 @@ window.onload = () => {
                 timerEl.innerText = time.toFixed(2);
 
                 if (time <= 0) {
+                    taEl.disabled = true
                     timerEl.innerText = "0.00";
                     alert("Time is up!");
                     clearInterval(interval);
