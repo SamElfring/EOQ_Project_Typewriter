@@ -2,7 +2,6 @@ from flask import Flask, render_template
 from uuid import uuid4
 from models import db, Sentences, Leaderboard
 import postgresqlite
-import random
 
 app = Flask(__name__)
 
@@ -27,7 +26,7 @@ def populate_db():
 
 @app.route("/")
 def index():
-    return render_template("index.html")
+    return render_template("index.html", start_sentence=Sentences.get_random())
 
 @app.route("/new-sentence")
 def get_new_sentence():
