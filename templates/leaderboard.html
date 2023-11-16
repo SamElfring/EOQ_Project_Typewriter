@@ -3,15 +3,17 @@
 {% block body %}
     <table>
         <tr>
-            <th>Username</th>
-            <th>WPS</th>
-            <th>Points</th>
+            <td>Rank</td>
+            <td>Username</td>
+            <td>WPS</td>
+            <td>Points</td>
         </tr>
         {% for user in leaderboard %}
             <tr>
-                <th>{{user.username}}</th>
-                <th>{{user.words_per_minute}}</th>
-                <th>{{user.words_entered}}</th>
+                <td>{{loop.index}}</td>
+                <td>{{user.username}}</td>
+                <td>{{user.words_per_minute}}</td>
+                <td>{{user.words_entered}}</td>
             </tr>
         {% endfor %}
     </table>
