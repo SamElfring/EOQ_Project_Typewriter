@@ -56,6 +56,8 @@ def add_to_leaderboard():
     if not name:
         name = ""
 
+    name = name[:20]
+
     if not wpm or not accuracy:
         return redirect('/')
 
