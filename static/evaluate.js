@@ -25,7 +25,7 @@ function evaluateInput(input) {
 
     calculateAccuracy(correct)
     effect(correct ? input.at(-1).toLowerCase() : "boom")
-    if (errCount == 100) {
+    if (errCount == 50) {
         effect("&&$%", volume=0.6)
     }
 }
