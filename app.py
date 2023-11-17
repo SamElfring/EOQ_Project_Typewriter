@@ -66,6 +66,10 @@ def add_to_leaderboard():
 
     return redirect("/leaderboard")
 
+@app.route("/rules")
+def rules():
+    return render_template("rules.html")
+
 # Create tables and models
 with app.app_context():
     db.create_all()

@@ -15,6 +15,17 @@ body {
     height: 100vh;
 }
 
+.container {
+    background-color: #2d2d2d;
+    border: 1px solid #444;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    width: 80%;
+    min-width: 600px;
+}
+
 .typing-container {
     background-color: #2d2d2d;
     border: 1px solid #444;
@@ -188,4 +199,22 @@ table tr:nth-child(odd) {
     border: none;
     padding: 12px;
     border-radius: 12px;
+}
+
+/* Rules */
+.rules {
+    color: #eee;
+}
+
+.rules .rules-how-to {
+    text-align: left;
+    list-style-position: inside;
+
+    margin-top: 12px;
+    line-height: 24px;
+}
+
+.rules hr {
+    border-color: #444;
+    margin: 12px 0;
 }
