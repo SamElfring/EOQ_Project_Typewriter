@@ -7,16 +7,10 @@ ta.addEventListener("input", function (e) {
     if (e.target.value.length < input_len) {
         e.target.value = last_val
     }
-    else if (e.target.value.endsWith("  ") || e.target.value.endsWith("\n")) {
+    else if (e.target.value.endsWith("\n")) {
         e.target.value = last_val
     }
-    else if (e.target.value.endsWith(" ")) {
-        last_val = e.target.value
-        input_len = e.target.value.length
-        calculateWord()
-        evaluateInput(e.target.value)
-    }
-    else if (e.target.value.length == evaluateAnswerLength()-1) {
+    else if (e.target.value.length >= evaluateAnswerLength()-1) {
         evaluateInput(e.target.value)
         calculateWord()
         input_len = 0
@@ -24,6 +18,14 @@ ta.addEventListener("input", function (e) {
         e.target.value = ""
         evaluateClear()
         showNewSentence()
+    }
+    else if (e.target.value.endsWith(" ")) {
+        last_val = e.target.value
+        input_len = e.target.value.length
+        if (!e.target.value.endsWith("  ")) {
+            calculateWord()
+        }
+        evaluateInput(e.target.value)
     }
     else {
         input_len = e.target.value.length
