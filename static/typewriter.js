@@ -4,6 +4,7 @@ var last_val = ""
 var ta = document.getElementsByClassName('typing-area')[0]
 
 ta.addEventListener("input", function (e) {
+    effectTyping()
     if (e.target.value.length < input_len || e.target.value.endsWith("\n")) {
         e.target.value = last_val
     }
