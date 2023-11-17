@@ -54,7 +54,7 @@ def add_to_leaderboard():
     name = request.form.get("name")
 
     if not name:
-        return redirect('/')
+        name = ""
 
     db.session.add(Leaderboard(username=name, words_entered=0, words_per_minute=wpm)) # type: ignore
     db.session.commit()
