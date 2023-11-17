@@ -50,13 +50,18 @@ def get_leaderboard():
 @app.route("/leaderboard", methods=["POST"])
 def add_to_leaderboard():
     wpm = request.form.get("wpm")
-    # accuracy = request.form.get("accuracy")
+    accuracy = request.form.get("accuracy")
     name = request.form.get("name")
 
     if not name:
         name = ""
 
-    db.session.add(Leaderboard(username=name, words_entered=0, words_per_minute=wpm)) # type: ignore
+    if not wpm or not accuracy:
+        return redirect('/')
+
+    points = round(int(wpm) / 100 * int(accuracy))
+
+    db.session.add(Leaderboard(username=name, points=points, words_per_minute=wpm, accuracy=accuracy)) # type: ignore
     db.session.commit()
 
     return redirect("/leaderboard")

@@ -8,16 +8,16 @@
                 <th class="table-header">Rank</th>
                 <th class="table-header">Username</th>
                 <th class="table-header">WPM</th>
-                <th class="table-header">Points</th>
                 <th class="table-header">Accuracy</th>
+                <th class="table-header">Points</th>
             </tr>
             {% for user in leaderboard %}
                 <tr>
                     <td class="table-content">{{loop.index}}</td>
                     <td class="table-content">{{user.username}}</td>
                     <td class="table-content">{{user.words_per_minute}}</td>
-                    <td class="table-content">{{user.words_entered}}</td>
                     <td class="table-content">{{user.accuracy}}</td>
+                    <td class="table-content"><b>{{user.points}}</b></td>
                 </tr>
             {% endfor %}
         </table>

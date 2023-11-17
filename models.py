@@ -15,11 +15,10 @@ class Sentences(db.Model):
 class Leaderboard(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(20))
-    words_entered = db.Column(db.Integer)
+    points = db.Column(db.Integer)
     words_per_minute = db.Column(db.Integer)
-    time = db.Column(db.DateTime)
     accuracy = db.Column(db.Integer)
 
     @classmethod
     def get_leaderboard(cls):
-        return cls.query.order_by(desc(cls.words_per_minute)).limit(10).all()
+        return cls.query.order_by(desc(cls.points)).limit(10).all()
