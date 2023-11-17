@@ -1,4 +1,6 @@
-function effectTyping() {
-    var src = new Audio("static/media/boom.wav")
-    src.play()
+function effect(char) {
+    if (!" \n".includes(char)) {
+        var src = new Audio(`static/media/${char}.wav`)
+        src.play()
+    }
 }
