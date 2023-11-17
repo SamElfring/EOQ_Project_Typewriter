@@ -1,3 +1,5 @@
+/* Global styles */
+
 * {
     margin: 0;
     padding: 0;
@@ -25,6 +27,8 @@ body {
     width: 80%;
     min-width: 600px;
 }
+
+/* Type writer */
 
 .typing-container {
     background-color: #2d2d2d;
@@ -85,6 +89,8 @@ body {
 .right {
     color: green;
 }
+
+/* Links */
 
 .links {
     margin-top: 24px;

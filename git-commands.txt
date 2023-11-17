@@ -1,6 +1,0 @@
-git add -> Add your changes
-git commit -m "<Message>" -> Combine the added changes as a new version in time
-git fetch -> Fetch all the changes from the remote server
-git status -> Get the status of the repository
-git pull --rebase -> Get the changes and put your changes above that
-git push -> Push the changes to the remote server
