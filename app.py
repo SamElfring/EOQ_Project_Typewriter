@@ -70,6 +70,10 @@ def add_to_leaderboard():
 def rules():
     return render_template("rules.html")
 
+@app.route("/credits")
+def credits():
+    return render_template("credits.html")
+
 # Create tables and models
 with app.app_context():
     db.create_all()

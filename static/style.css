@@ -218,3 +218,26 @@ table tr:nth-child(odd) {
     border-color: #444;
     margin: 12px 0;
 }
+
+/* Credits */
+
+.credits ul {
+    list-style: none;
+    margin-top: 1rem;
+}
+
+.credits ul li {
+    font-size: 1.5rem;
+    
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 0;
+}
+.credits ul li:not(:last-of-type) {
+    border-bottom: 1px solid #444;
+}
+
+.credits ul, .credits ul li a {
+    color: #eee;
+    font-size: small;
+}
