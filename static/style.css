@@ -96,8 +96,8 @@ body {
     padding: 12px;
     border: 1px solid #333;
     border-radius: 6px;
+    margin-right: 12px;
 }
-
 .links a:hover {
     background-color: #444;
 }
